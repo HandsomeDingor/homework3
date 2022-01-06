@@ -26,14 +26,18 @@ function generatePassword () {
 
   do{
     var password_length = prompt("Please enter the length of Password");
-    if (isNaN(password_length)){
+    //check if hit cancel
+    if(password_length === null){
+      alert ("Please enter number form 8 to 128 or close window");
+    } else if (isNaN(password_length)){ //check string or number
       alert ("Please enter number only");
-    } else if (password_length < 8 || password_length > 128){
+    } else if (password_length < 8 || password_length > 128){ //check number interval 
       alert ("number from 8 to 128");
     }
   }while(!(!(isNaN(password_length)) && password_length >=8 && password_length <= 128))
 
   do{
+    //check if true or false
     isLowercase = confirm("Password includes lowercase");
     isUppercase = confirm("Password includes uppercase");
     isNumberic = confirm("Password includes numbers");
