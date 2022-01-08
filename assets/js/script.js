@@ -16,14 +16,13 @@ function writePassword() {
 function generatePassword() {
   do {
     var password_length = prompt("Please enter the length of Password");
-    console.log(password_length);
     //check if hit cancel return
     if (password_length === null) {
       return ""; //need return empty string otherwise undefined 
     } else if (password_length === "") {
       alert("Please enter number form 8 to 128 or cancel or close window");
-    // } else if (isNaN(password_length)) { //check string or number
-    //   alert("Please enter number only");
+    } else if (isNaN(password_length)) { //check string or number
+      alert("Please enter number only");
     } else if (!(Number.isInteger(Number(password_length)))){ //check it is integer or not
       alert("Please enter an integer number form 8 to 128")
     } else if (password_length < 8 || password_length > 128) { //check number interval 
