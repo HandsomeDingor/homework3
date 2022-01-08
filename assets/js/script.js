@@ -18,7 +18,7 @@ function generatePassword() {
     var password_length = prompt("Please enter the length of Password");
     //check if hit cancel return
     if (password_length === null) {
-      return; 
+      return ""; //need return empty string otherwise undefined 
     } else if (password_length === "") {
       alert("Please enter number form 8 to 128 or cancel or close window");
     } else if (isNaN(password_length)) { //check string or number
