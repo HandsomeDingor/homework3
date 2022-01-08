@@ -28,5 +28,5 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 ```
 
-The following image demonstrates the application functionality:
+## The following image demonstrates the application functionality:
 ![gif](https://user-images.githubusercontent.com/94802639/148630785-2f2827e5-6b60-4a33-9cba-f59094504531.gif)
