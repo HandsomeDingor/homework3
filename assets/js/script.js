@@ -13,33 +13,27 @@ function writePassword() {
 
 }
 
-var upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
-var numbers = '0123456789';
-var symbols = '!"#$%&()*+,-./:;<=>?@[^_`{|}~';
-var isLowercase = true;
-var isUppercase = true;
-var isNumberic = true;
-var isSpecial = true;
-
 function generatePassword() {
-
   do {
     var password_length = prompt("Please enter the length of Password");
-    //check if hit cancel
+    //check if hit cancel return
     if (password_length === null) {
-      alert("Please enter number form 8 to 128 or close window");
+      return; 
     } else if (password_length === "") {
-      alert("Please enter number form 8 to 128 or close window");
+      alert("Please enter number form 8 to 128 or cancel or close window");
     } else if (isNaN(password_length)) { //check string or number
       alert("Please enter number only");
-
     } else if (password_length < 8 || password_length > 128) { //check number interval 
       alert("number from 8 to 128");
     }
-
-    console.log(password_length);
   } while (!(!(isNaN(password_length)) && password_length >= 8 && password_length <= 128))
+  
+  
+
+  let isLowercase = true;
+  let isUppercase = true;
+  let isNumberic = true;
+  let isSpecial = true;
 
   do {
     //check if true or false
@@ -52,8 +46,11 @@ function generatePassword() {
       alert("at least one character type should be selected");
     }
 
+    const upperLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const lowerLetters = 'abcdefghijklmnopqrstuvwxyz';
+    const numbers = '0123456789';
+    const symbols = '!"#$%&()*+,-./:;<=>?@[^_`{|}~';
     var chars = "";
-    var pw = ""
 
     //check and add up the chars string
     if (isLowercase) {
@@ -70,11 +67,12 @@ function generatePassword() {
     }
   } while (!isLowercase && !isUppercase && !isNumberic && !isSpecial)
 
+  var pw = "";
+
   // using for loop to random select letter for "chars string"
   for (var i = 0; i < password_length; i++) {
     pw += chars.charAt(Math.floor(Math.random() * chars.length));
   }
-
   return pw;
 }
 
