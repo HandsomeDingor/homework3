@@ -18,8 +18,8 @@ function generatePassword() {
     var password_length = prompt("Please enter the length of Password");
     //check if hit cancel return
     if (password_length === null) {
-      return ""; //need return empty string otherwise undefined 
-    } else if (password_length === "") {
+      return ""; //need return empty string otherwise undefined if press CANCEL
+    } else if (password_length === "") { //just press enter
       alert("Please enter number form 8 to 128 or cancel or close window");
     } else if (isNaN(password_length)) { //check string or number
       alert("Please enter number only");
@@ -29,8 +29,7 @@ function generatePassword() {
       alert("number from 8 to 128");
     }
   } while (!(password_length >= 8 && password_length <= 128 && Number.isInteger(Number(password_length))))
-  
-  
+    // run the function iif number and [8,128]
 
   let isLowercase = true;
   let isUppercase = true;
@@ -44,6 +43,7 @@ function generatePassword() {
     isNumberic = confirm("Password includes numbers");
     isSpecial = confirm("Password includes special characters");
 
+    // check at least one character type should be selected
     if (!isLowercase && !isUppercase && !isNumberic && !isSpecial) {
       alert("at least one character type should be selected");
     }
